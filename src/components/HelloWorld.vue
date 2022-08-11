@@ -1,43 +1,58 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="landing">
+    <div class="row mt-5 m-3 p-3">
+      <div class="col-lg-3">
+        <div class="logos">
+          <div class="card">
+            <img src="../assets/nike.jpg" alt="" class="img-fluid" />
+          </div>
+          <div class="card">
+            <img src="../assets/adidas.jpg" alt="" class="img-fluid" />
+          </div>
+          <div class="card">
+            <img src="../assets/puma.jpg" alt="" class="img-fluid" />
+          </div>
+          <div class="card">
+            <img src="../assets/vans.jpg" alt="" class="img-fluid" />
+          </div>
+          <div class="card">
+            <img src="../assets/jordan.jpg" alt="" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h1 class="heading">SNEAKIFIED</h1>
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+          consectetur. Sint aliquid iure perferendis repudiandae dolor? Pariatur
+          vel ea dicta et hic, tempora molestias quidem eaque laudantium,
+          accusamus voluptatem accusantium!
+        </p>
+        <p class="content">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
+          voluptate mollitia in, molestias, ex iure odio voluptates quaerat
+          aspernatur autem veritatis accusamus iste? Cumque adipisci dolorum
+          quae voluptatibus amet alias!
+        </p>
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
+          accusamus accusantium enim voluptatibus numquam exercitationem
+          cupiditate, cumque nobis facere impedit repellendus similique illo
+          commodi autem quaerat doloribus nulla rerum deleniti?
+        </p>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -55,5 +70,51 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.landing {
+  min-height: 100vh;
+}
+
+.card {
+  background-color: grey;
+  width: fit-content;
+  padding: 10px;
+  margin: 25px;
+}
+
+.img-fluid {
+  height: 150px;
+  width: 300px;
+  object-fit: cover;
+}
+
+img:hover {
+  transform: scale(1.1);
+  background-color: crimson;
+}
+
+.heading {
+  color: crimson;
+  text-shadow: 1px 1px 1px white;
+  position: relative;
+  cursor: pointer;
+}
+
+.heading:before {
+    content: '';
+    width: 20%;
+    height: 1px;
+    position: absolute;
+    left: 40%;
+    bottom: -8px;
+    border-bottom: solid 2px white;
+}
+
+.content {
+  font-size: 25px;
+  margin: 5px;
+  padding: 5px;
+  color: white;
 }
 </style>

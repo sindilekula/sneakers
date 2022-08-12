@@ -14,6 +14,9 @@
                 <router-link class="nav-link text-light ms-5" href="#" to="/about">ABOUT</router-link>
                 </li>
                 <li class="nav-item">
+                <router-link class="nav-link text-light ms-5" href="#" to="/products">PRODUCTS</router-link>
+                </li>
+                <li class="nav-item">
                 <router-link class="nav-link text-light ms-5" href="#" to="/contact">CONTACT</router-link>
                 </li>
             </ul>

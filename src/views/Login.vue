@@ -1,7 +1,7 @@
 <template>
     <div id="output" class="mt-5 mb-5">
         <h1>LOG IN</h1>
-        <form >
+        <form method="post" id="form">
             <label for="email">Email</label>
             <input
             type="text"
@@ -31,6 +31,26 @@
 export default {
     
 }
+const form = document.getElementById("form");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const userEmail = document.getElementById("email").value;
+      const psw = document.getElementById("password").value;
+      fetch("https://eom-project.herokuapp.com/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          password: psw,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+        });
+    });
 </script>
 <style scoped>
 #output {

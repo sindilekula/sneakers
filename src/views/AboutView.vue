@@ -1,13 +1,13 @@
 <template>
   <div class="about">
-    <h1>ALL ABOUT US</h1>
+    <h1>All About Us</h1>
     <div class="row">
       <div class="col-lg-6">
         <div class="text">
           <h3>SNEAKIFIED - THE BEGINNING … OF A LEGACY!!</h3>
-          <p class="text-light">Street Fever originated from humble beginnings; A family-owned business with roots entrenched deep in their heritage. The foundation was laid back in 1974 when the eldest of four brothers opened a men’s outfitter in Cape Town. The sneaker culture itself was created in 1989 with the opening of an outlet called Bronx, one of the first sneaker stores in Cape Town.</p>
+          <p class="text-light">Sneakified had humble origins; it was a co-founded company with strong roots in its culture. When we established a men's outfitter in Cape Town in 2022, the groundwork was already in place. When one of the first sneaker businesses in Cape Town, named Bronx, opened its doors in 1989, the sneaker culture as we know it today was born.</p>
 
-          <p class="text-light">The brothers combined and saw an opportunity in the market to create a leading, independent sneaker store, culminating in the opening of the first Street Fever in 1996 in Cavendish Square, Cape Town. Fast forward to today and Street Fever boasts 124 stores across South Africa, along the way earning itself a reputation as a leader in the lifestyle and sports footwear category in the country.</p>
+          <p class="text-light">The group came together and recognized a market potential to establish a premier, independent sneaker store, which led to the launch of the first Sneakified in Cavendish Square, Cape Town, in 2022. Today, Sneakified has several locations all throughout South Africa and has established a strong reputation as the nation's leader in the lifestyle and sports footwear industry.</p>
         </div>
       </div>
       <div class="col-lg-6">
@@ -24,18 +24,18 @@
       </div>
       <div class="col-lg-6">
         <div class="text">
-          <p class="text-light">Street Fever originated from humble beginnings; A family-owned business with roots entrenched deep in their heritage. The foundation was laid back in 1974 when the eldest of four brothers opened a men’s outfitter in Cape Town. The sneaker culture itself was created in 1989 with the opening of an outlet called Bronx, one of the first sneaker stores in Cape Town.</p>
+          <p class="text-light">The company's concept and aim have always been to introduce premium athleisure and footwear brands to South Africans who share those values in this extraordinary retail segment.</p>
 
-          <p class="text-light">The brothers combined and saw an opportunity in the market to create a leading, independent sneaker store, culminating in the opening of the first Street Fever in 1996 in Cavendish Square, Cape Town. Fast forward to today and Street Fever boasts 124 stores across South Africa, along the way earning itself a reputation as a leader in the lifestyle and sports footwear category in the country.</p>
+          <p class="text-light">Whether it's for business or play, Sneakified celebrates the inherent street and athleisure culture by providing its clients with a chic, vintage-style shopping atmosphere while putting a large variety of trusted national and international brands on display.</p>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6">
         <div class="text">
-          <p class="text-light">We challenge the status quo; we celebrate the trend-setters; we aim to be different but most of all we stay true to our heritage and humble beginnings. Although we aim to be different, no one is yet different in our eyes.</p>
+          <p class="text-light">We strive to be unique, we question the existing quo, we honor trend-setters, but most importantly, we remain faithful to our history and modest beginnings. No one is yet distinct in our sight, despite the fact that we want to be.</p>
 
-          <p class="text-light">Our staff and YOU, the person reading this, OUR customer, are the heartbeat of our business. Our values and mission are always displayed and portrayed through the interactions one becomes accustomed to and familiar with when visiting any Street Fever outlet across South Africa.</p>
+          <p class="text-light">The lifeblood of our company is our employees and YOU, the reader, our client. The encounters one develops accustomed to and comfortable with while visiting any Sneakified location around South Africa consistently exhibit and express our beliefs and mission.</p>
         </div>
       </div>
       <div class="col-lg-6">
@@ -50,6 +50,13 @@
 
 
 <style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 h1 {
   color: crimson;
 }

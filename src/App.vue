@@ -30,6 +30,7 @@ export default {
   /* color: #2c3e50; */
   /* background-color: black; */
   background-image: linear-gradient(to right bottom, #000000, #080707, #100d0d, #151212, #1a1616);
+  overflow: hidden;
 }
 
 nav {

@@ -34,6 +34,28 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import('../views/Register.vue')
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    component: () => import("../views/CartView.vue"),
+  },
+  {
+    path: "/checkout",
+    name: "checkoutview",
+    component: () => import("../views/CheckOutView.vue"),
+    props: true,
+  },
+  {
+    path: "/singlepage",
+    name: "singleview",
+    component: () => import("../views/SingleProduct.vue"),
+    // props: true,
+  },
+  {
+    path: '/Admin',
+    name: 'Admin',
+    component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue')
   }
 ]
 

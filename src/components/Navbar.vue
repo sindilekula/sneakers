@@ -19,13 +19,25 @@
                 <li class="nav-item">
                 <router-link class="nav-link text-light ms-5" href="#" to="/contact">CONTACT</router-link>
                 </li>
+                <li class="nav-item">
+                <router-link class="nav-link text-light ms-5" href="#" to="/login">LOGIN</router-link>
+                </li>
+                <li class="nav-item">
+                <router-link class="nav-link text-light ms-5" href="#" to="/register">REGISTER</router-link>
+                </li>
+                <li class="nav-item">
+                <router-link class="nav-link text-light ms-5" href="#" to="/cart">CART</router-link>
+                </li>
+                <li class="nav-item">
+                <router-link class="nav-link text-light ms-5" href="#" to="/Admin">ADMIN</router-link>
+                </li>
             </ul>
             </div>
-            <div class="pages">
+            <!-- <div class="pages">
                 <router-link href="" to="/login">LOGIN</router-link>
                 <router-link href="" to="/register">REGISTER</router-link>
-            </div>
-        </div>
+            </div> -->
+         </div>
     </nav>
 </template>
 <script>
@@ -37,13 +49,16 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 #navbarSupportedContent {
-    margin-left: 350px;
+    margin-left: 150px;
+    overflow: hidden;
 }
 
 .container-fluid {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    overflow: hidden;
+    width: 100%;
 }
 
 .navbar {
@@ -54,7 +69,7 @@ export default {
     font-size: 13px;
     /* background-color: black; */
     background-color: rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 98%;
     overflow: hidden;
 }
 

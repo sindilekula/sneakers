@@ -1,5 +1,5 @@
 <template>
-    <div class="contact">
+    <div class="contact m-3 p-3">
         <h1>Contact Us</h1>
         <div class="details d-flex">
             <div class="card text-center">
@@ -22,7 +22,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row m-5 p-5">
+        <div class="row">
             <div class="col-lg-8">
                 <form class="form">
                     <label for="name">Full Name</label>
@@ -51,6 +51,13 @@ export default {
 }
 </script>
 <style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 h1 {
     color: crimson;
 }
@@ -140,12 +147,20 @@ label {
 
 button.btn {
     background-color: crimson;
+    width: 150px;
 }
 
 iframe {
     margin: 20px;
     padding: 10px;
-    width: 100%;
+    width: fit-content;
     height: 92%;
+}
+
+@media screen and (max-width: 992px) {
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
 }
 </style>

@@ -3,12 +3,12 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <HelloWorld msg="Welcome to Your Vue.js App" />
 
-    <div class="products" v-for="product in Products" :key="product.id">
+    <!-- <div class="products" v-for="product in Products" :key="product.id">
       <h1>{{ product.name }}</h1>
       <img :src="product.image" />
       <p>{{ product.descriptions }}</p>
       <button @click="getProduct(product.product_id)">View</button>
-    </div>
+    </div> -->
   </div>
 </template>
 

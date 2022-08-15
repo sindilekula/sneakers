@@ -7,7 +7,7 @@
         type="text"
         v-model="email"
         class="mt-2 mb-2"
-        placeholder="Enter your email address..."
+        placeholder="Enter your email..."
         required
       />
       <label for="password">Password</label>
@@ -18,7 +18,9 @@
         placeholder="Enter your password..."
         required
       />
+      <!-- <router-link :to="{ name: 'Products', params: { id: product.id} }"> -->
       <button type="submit" id="btn" @click.prevent="Login()">Login</button>
+      <!-- </router-link> -->
       <div class="mt-5">
         <p>
           Not a member?
@@ -30,6 +32,7 @@
         </p>
       </div>
     </form>
+     <div v-if="user"><p>Welcome {{ user.full_name }}</p></div>
   </div>
 </template>
 <script>
@@ -46,17 +49,25 @@ export default {
         email: this.email,
         password: this.password,
       });
+      
     },
   },
 };
 </script>
 <style scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 #output {
   background-color: crimson;
   border: solid 3px black;
-  margin: 40px;
-  padding: 30px;
-  width: 500px;
+  margin: 20px;
+  padding: 10px;
+  width: 300px;
   height: 500px;
   box-shadow: 5px 5px 5px #000122;
   /* text-align: center; */
@@ -70,13 +81,13 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
-  padding: 10px;
+  margin: 10px;
+  padding: 5px;
   /* text-align: center; */
 }
 
 form input {
-  width: 80%;
+  width: 90%;
   padding: 10px;
   border-radius: 10px;
   border: solid 1px black;
@@ -106,5 +117,9 @@ h1 {
 
 .register {
   text-decoration: none;
+}
+
+p {
+  color: white;
 }
 </style>

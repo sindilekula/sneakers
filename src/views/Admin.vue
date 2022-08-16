@@ -78,4 +78,20 @@ img {
     width: 150px;
     height: 150px;
 }
+
+@media screen and (max-width: 300px) {
+    .admin {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+    }
+
+    .table {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: fit-content;
+    }
+}
 </style>

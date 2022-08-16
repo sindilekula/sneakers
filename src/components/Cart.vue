@@ -1,23 +1,25 @@
 <template>
   <body>
     <div class="wrapper">
-      <h1>My Cart</h1>
+      <h1 class="heading">My Cart</h1>
         <div class="row">
             <div class="col-lg-8">
                 <div class="box">
                     <div class="content">
                         <div class="cards" v-for="product in cartproducts" :key="product.id">
                             <img :src="product.image" class="mb-2" alt="food" />
-                            <h3 class="ms-3">{{ product.brand }}</h3>
-                            <p class="d-flex justify-content- gap-3">
-                            <span class="ms-3">Subtotal: R{{ product.price }}</span>
-                            </p>
-                            <button @click="deleteFromCart(product.product_id)" class="btn btn-lg rounded-pill">
-                            <i class="fa fa-trash"></i>
-                            <span class="btn2">Remove</span>
-                            </button>
-                            <div class="right-bar">
-                            <hr />
+                            <div class="cart-content">
+                                <h3 class="ms-5">{{ product.brand }}</h3>
+                                <p class="d-flex justify-content- gap-3">
+                                <span class="ms-5">Subtotal: R{{ product.price }}</span>
+                                </p>
+                                <button @click="deleteFromCart(product.product_id)" class="btn btn-lg rounded-pill ms-5">
+                                <i class="fa fa-trash"></i>
+                                <span class="btn2">Remove</span>
+                                </button>
+                                <div class="right-bar">
+                                <hr />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,6 +82,10 @@ export default {
 </script>
 
 <style scoped>
+.heading {
+    color: crimson;
+}
+
 img {
     width: 150px;
     height: 150px;
@@ -92,6 +98,11 @@ img {
     padding: 10px;
     border: solid 1px black;
     justify-content: space-between;
+}
+
+.cart-content {
+    display: flex;
+    flex-direction: row;
 }
 
 .card {
@@ -109,6 +120,27 @@ img {
 button.btn {
     background-color: crimson;
     width: 150px;
-    height: 50px;
+    /* height: 50px; */
+}
+
+button.btn:hover {
+   background-color: black;
+  color: crimson 
+}
+
+@media screen and (max-width: 630px) {
+    .cart-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 </style>

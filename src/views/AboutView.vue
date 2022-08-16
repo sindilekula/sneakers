@@ -12,7 +12,7 @@
       </div>
       <div class="col-lg-6">
         <div class="images">
-          <img src="../assets/store.png" alt="">
+          <img src="../assets/store.png" alt="" class="img-fluid">
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="col-lg-6">
         <div class="images">
-          <img src="../assets/store.png" alt="">
+          <img src="../assets/store.png" alt="" class="img-fluid">
         </div>
       </div>
     </div>

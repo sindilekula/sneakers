@@ -12,29 +12,24 @@
   <div id="userCart">
     <button onclick="resetData()">CHECKOUT</button>
   </div> -->
-  <div class="products">
-    <!-- <h1>Products Page</h1> -->
-    <div class="cards" v-for="product in Products" :key="product.id">
-      <h1>{{ product.name }}</h1>
-      <img :src="product.image" />
-      <p class="py-2">R{{ product.price }}</p>
-      <p class="py-2">{{ product.descriptions }}</p>
-        <router-link :to="{ name: 'singleview', params: { id: product.id} }">
-            <button
-                type="submit"
-                class="btn rounded-pill py-2"
-                @click="getProduct(product.product_id)"
-            >
-            <router-link to="/singlepage"></router-link>
-                More Details
-            </button>
-        </router-link>
-      <button @click="addToCart(product)" class="btn btn-lg rounded-pill ms-1">
-        <i class="fa-solid fa-cart-arrow-down"></i>
-        <span class="btn2 ms-1">Add</span>
-      </button>
+    <div class="products">
+        <!-- <h1>Products Page</h1> -->
+        <div class="cards" v-for="product in Products" :key="product.product_id">
+        <h1>{{ product.name }}</h1>
+        <img :src="product.image" />
+        <p class="py-2">R{{ product.price }}</p>
+        <p class="py-2">{{ product.descriptions }}</p>
+            <router-link :to="{ name: 'singleview', params: { id: product.product_id} }">
+                <button class="btn btn-lg rounded-pill ms-2">
+                    More Details
+                </button>
+            </router-link>
+        <button @click="addToCart(product)" class="btn btn-lg rounded-pill ms-2">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span class="btn2 ms-1">Add</span>
+        </button>
+        </div>
     </div>
-  </div>
 </template>
 <script>
 import { mapActions, mapState } from "vuex";
@@ -188,6 +183,7 @@ export default {
   -moz-transition: background-color 2s ease-out;
   -o-transition: background-color 2s ease-out;
   transition: background-color 2s ease-out;
+  box-shadow: 10px 5px 10px 5px crimson;
 }
 
 img {
@@ -199,7 +195,12 @@ button.btn {
   background-color: crimson;
   color: black;
   height: 40px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
+}
+
+button.btn:hover {
+   background-color: black;
+  color: crimson 
 }
 </style>

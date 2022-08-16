@@ -5,7 +5,6 @@ export default createStore({
   state: {
     product:null,
     products: null,
-    singleProduct: null,
     user: null,
     asc: true,
     cart: []
@@ -16,8 +15,8 @@ export default createStore({
     setProducts(state, products) {
       state.products = products;
     },
-    setProduct(state, singleProduct) {
-      state.singleProduct = singleProduct;
+    setProduct(state, product) {
+      state.product = product;
     },
     setUser(state, user) {
       state.user = user;
@@ -115,23 +114,26 @@ export default createStore({
       //       // console.log(data);
       //     }
       //   });    
-      fetch(`https://eom-project.herokuapp.com/products/${id}`)
+      fetch('https://eom-project.herokuapp.com/products/' + id)
         .then((res) => res.json())
-        .then((product) => context.commit("setProduct", product));
+        .then((product) => {
+        console.log(product),
+          context.commit("setProduct", product)
+        });
     },
 
     // ADD A PRODUCT
-    addProduct: async (context, product) => {
-      fetch(`https://eom-project.herokuapp.com/products`, {
-        method: "POST",
-        body: JSON.stringify(product),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => context.commit("setProduct", json));
-    },
+    // addProduct: async (context, product) => {
+    //   fetch(`https://eom-project.herokuapp.com/products`, {
+    //     method: "POST",
+    //     body: JSON.stringify(product),
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //   })
+    //     .then((response) => response.json())
+    //     .then((json) => context.commit("setProduct", json));
+    // },
 
     // DELETE A PRODUCT
     // deleteProduct: async (context, id) => {
@@ -228,6 +230,7 @@ export default createStore({
 				}),
 				headers: {
 					"Content-type": "application/json; charset=UTF-8",
+          "X-auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7I…jU5fQ.YmC6lswhcREOp4MmHD_SouadEUmtmA5metSmLY7NyNg",
 				},
 			})
 				.then((response) => response.json())

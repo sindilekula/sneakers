@@ -1,24 +1,26 @@
 <template>
   <div v-if="product" class="container">
-    <div class="card shadow mb-3">
-      <img :src="product.image" class="car-img mb-2" alt="Picture of product" />
-      <h5 class="text-black">{{ product.name }}</h5>
-      <p class="text-secondary">
-        {{ product.catergory }}
-      </p>
-      <p>{{ product.description }}</p>
-      <p>R{{ product.price }}</p>
-      <!-- <input type="number" placeholder="qty" v-model="qty" /> -->
-      <button @click="addToCart(product)" class="btn mb-3">
-        <i class="fa-solid fa-cart-arrow-down"></i>
-        <span class="btn2">Add</span>
-      </button>
+    <div v-for="item in product" :key="item.id" class="card shadow mb-3">
+      <img :src="item.image" class="car-img mb-2" alt="Picture of product" />
+      <div class="card-details">
+        <h5 class="text-black">Brand: <span>{{ item.name }}</span></h5>
+        <p class="text-secondary">
+          {{ item.catergory }}
+        </p>
+        <p>{{ item.descriptions }}</p>
+        <p>Price: <span>R{{ item.price }}</span></p>
+        <!-- <input type="number" placeholder="qty" v-model="qty" /> -->
+        <button @click="addToCart(item)" class="btn btn-lg rounded-pill ms-1">
+          <i class="fa-solid fa-cart-arrow-down"></i>
+          <span class="btn2">Add</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: ["id"],
+  props: ["product.id"],
   computed: {
     product() {
       return this.$store.state.product;
@@ -30,7 +32,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("getProduct", this.id);
+    this.$store.dispatch("getProduct", this.$route.params.id);
   },
 };
 </script>
@@ -40,6 +42,7 @@ export default {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  /* height: 100vh; */
 }
 
 a {
@@ -48,14 +51,18 @@ a {
 
 .card {
   color: black;
-  width: 30%;
+  width: 50%;
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .card p {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -72,10 +79,31 @@ a {
   height: 275px;
   aspect-ratio: 1;
 }
+
+button.btn {
+  background-color: crimson;
+  color: black;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+button.btn:hover {
+   background-color: black;
+  color: crimson 
+}
+
 @media screen and (max-width: 800px) {
   .card {
     width: 100%;
     margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .card {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

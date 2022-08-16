@@ -47,7 +47,7 @@ const routes = [
     props: true,
   },
   {
-    path: "/singlepage",
+    path: "/singlepage/:id",
     name: "singleview",
     component: () => import("../views/SingleProduct.vue"),
     // props: true,

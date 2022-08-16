@@ -15,6 +15,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+// import AnimationHome from "@/components/AnimationHome.vue"
 import { mapActions, mapState } from "vuex";
 export default {
   name: "HomeView",

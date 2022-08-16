@@ -1,6 +1,7 @@
 <template>
 	<!-- <div><h1>LJMA GAMES</h1></div> -->
 	<div class="admin">
+        <td><CreateModal :product="product" /></td>
 		<table>
 			<thead>
 				<tr>
@@ -19,7 +20,6 @@
 					<td>{{ product.price }}</td>
 					<td><button @click="deleteProduct(product.product_id)"><i class="fa-solid fa-trash"></i><span class="ms-2">Delete</span></button></td>
 					<td><UpdateModal :product="product" /></td>
-                    <td><CreateModal :product="product" /></td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,14 +1,18 @@
 import router from "@/router";
 import { createStore } from "vuex";
 
+const api = "https://eom-project.herokuapp.com";
+
+console.log(api);
+
 export default createStore({
   state: {
-    product:null,
+    product: null,
     products: null,
     user: null,
+    token: null,
     asc: true,
-    cart: []
-
+    cart: [],
   },
   getters: {},
   mutations: {
@@ -20,6 +24,9 @@ export default createStore({
     },
     setUser(state, user) {
       state.user = user;
+    },
+    SET_TOKEN(state, token) {
+      state.token = token;
     },
     setCart(state, cart) {
       state.cart = cart;
@@ -66,7 +73,7 @@ export default createStore({
   // cart
   actions: {
     getCart: async (context) => {
-      fetch(`https://eom-project.herokuapp.com/products`)
+      fetch(`${api}/products`)
         .then((res) => res.json())
         .then((data) => {
           if (data.length === 0) {
@@ -78,29 +85,32 @@ export default createStore({
         });
     },
     addToCart: async (context, id) => {
-      console.log(id)
+      console.log(id);
       // this.state.cart.product.push(id);
       // context.dispatch("updateCart", this.state.cart);
     },
     deleteFromCart: async (context, id) => {
-      const newCart = context.state.cart.filter((product) => product.product_id != id);
+      const newCart = context.state.cart.filter(
+        (product) => product.product_id != id
+      );
       context.commit("removeFromCart", newCart);
     },
 
     // GET ALL PRODUCTS
     getProducts: async (context) => {
-      fetch(`https://eom-project.herokuapp.com/products`)
+      fetch(`${api}/products`)
         .then((res) => res.json())
         .then((data) => {
           if (data.length === 0) {
             console.log(data);
           } else {
+            console.log(data);
             context.commit("setProducts", data);
             // console.log(data);
           }
         });
     },
-    
+
     // GET A SINGLE PRODUCT
     getProduct: async (context, id) => {
       // fetch(`https://eom-project.herokuapp.com/products/${id}`)
@@ -113,12 +123,11 @@ export default createStore({
       //       context.commit("setProduct", data);
       //       // console.log(data);
       //     }
-      //   });    
-      fetch('https://eom-project.herokuapp.com/products/' + id)
+      //   });
+      fetch(`${api}/products/${id}`)
         .then((res) => res.json())
         .then((product) => {
-        console.log(product),
-          context.commit("setProduct", product)
+          console.log(product), context.commit("setProduct", product);
         });
     },
 
@@ -146,7 +155,7 @@ export default createStore({
 
     // LOGIN USER
     Login: async (context, payload) => {
-      fetch("https://eom-project.herokuapp.com/users/login", {
+      fetch(`${api}/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,17 +167,36 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          alert(payload.email);
+          if (data.token) {
+            // Saveing token to the store
+            context.commit("SET_TOKEN", data.token);
+
+            // Once token
+            // Verify Route
+            fetch(`${api}/users/users/verify`, {
+              headers: {
+                "Conten-Type": "application/json",
+                "x-auth-token": data.token,
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                context.commit("setUser", data.user);
+                alert(data.user.email);
+                router.push({
+                  name: "products",
+                });
+              });
+          }
+          //   });
+          // router.push({
+          //   name: "products",
         });
-        router.push({
-          name: 'products'
-        })
     },
 
     // REGISTER USER
     Register: async (context, payload) => {
-      fetch("https://eom-project.herokuapp.com/users/register", {
+      fetch(`${api}/users/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -188,55 +216,49 @@ export default createStore({
         .then((data) => {
           console.log(data);
         });
-  
     },
     updateProduct: async (context, product) => {
-			fetch("https://eom-project.herokuapp.com/products" + piece.id, {
-				method: "PUT",
-				body: JSON.stringify(product),
-				headers: {
-					"Content-type": "application/json; charset=UTF-8",
-				},
-			})
-				.then((response) => response.json())
-				.then(() => context.dispatch("getProducts"));
-		},
+      fetch(`${api}/products` + piece.id, {
+        method: "PUT",
+        body: JSON.stringify(product),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getProducts"));
+    },
 
-		// delete
-		deleteProduct: async (context, id) => {
-			fetch("https://eom-project.herokuapp.com/products/" + id, {
-				method: "DELETE",
-			})
-				.then((response) => response.json())
-				.then(() => context.dispatch("getProducts"));
-		},
+    // delete
+    deleteProduct: async (context, id) => {
+      fetch(`${api}/products/` + id, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getProducts"));
+    },
     // create a product
-		createProduct: async (context, payload) => {
-      let user={
-        user_type:"admin"
-      }
-      let userData=JSON.stringify(user)
-			const { name, price, descriptions, image, brand } =
-				payload;
-			await fetch("https://eom-project.herokuapp.com/products/addingproduct", {
-				method: "POST",
-				body: JSON.stringify({
-					name: name,
-					price: price,
-					descriptions: descriptions,
+    createProduct: async (context, payload) => {
+      const token = context.state.token;
+      const { name, price, descriptions, image, brand } = payload;
+      await fetch(`${api}/addingproduct`, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": `askjdhakjshdkashkdjh`,
+        },
+        body: JSON.stringify({
+          name: name,
+          price: price,
+          descriptions: descriptions,
           image: image,
-					brand: brand,
-          user:userData,
-				}),
-				headers: {
-					"Content-type": "application/json; charset=UTF-8",
-          "X-auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7I…jU5fQ.YmC6lswhcREOp4MmHD_SouadEUmtmA5metSmLY7NyNg",
-				},
-			})
-				.then((response) => response.json())
-				.then(() => context.dispatch("getProducts"));
-		},
-
+          brand: brand,
+        }),
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getProducts"));
+    },
   },
   modules: {},
 });

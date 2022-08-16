@@ -1,13 +1,22 @@
 <template>
     <h1 class="heading">Our Products</h1>
-  <div class="functions">
-    <button class="btn rounded-pill ms-2" @click="sortProducts">
-      Sort By Price
-    </button>
-    <button class="btn rounded-pill ms-2" @click="sortProduct">
-      Sort By Name
-    </button>
-  </div>
+    <div class="functions">
+        <button class="btn rounded-pill ms-2" @click="sortProducts">
+        Sort By Price
+        </button>
+        <button class="btn rounded-pill ms-2" @click="sortProduct">
+        Sort By Name
+        </button>
+     <input class="ms-5 mt-5" type="text" v-model="search" placeholder="Search" />
+        <select v-model="brand" class="ms-3">
+          <option value="all">All</option>
+          <option value="adidas">Adidas</option>
+          <option value="nike">Nike</option>
+          <option value="puma">Puma</option>
+          <option value="vans">Vans</option>
+          <option value="jordan">Jordan</option>
+        </select>
+    </div>
     <div class="products">
         <div class="cards" v-for="product in Products" :key="product.product_id">
         <h1>{{ product.name }}</h1>
@@ -24,6 +33,7 @@
             <span class="btn2 ms-1">Add</span>
         </button>
         </div>
+        <ProductCard v-for="product of filteredProducts" :key="product.product_id" :product="product" />
     </div>
 </template>
 <script>
@@ -33,7 +43,10 @@ export default {
   name: "HomeView",
   // props: [id],
   data() {
-    return {};
+    return {
+        search: "",
+        brand: "all",
+    };
   },
     components: {
       ProductCard,
@@ -142,5 +155,10 @@ button.btn {
 button.btn:hover {
    background-color: black;
   color: crimson 
+}
+
+input, select {
+    background-color: crimson;
+    color: white;
 }
 </style>

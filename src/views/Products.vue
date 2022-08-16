@@ -1,4 +1,5 @@
 <template>
+    <h1 class="heading">Our Products</h1>
   <div class="functions">
     <button class="btn rounded-pill ms-2" @click="sortProducts">
       Sort By Price
@@ -7,13 +8,7 @@
       Sort By Name
     </button>
   </div>
-
-  <!-- <button onclick="diplayBasket()">CART</button>
-  <div id="userCart">
-    <button onclick="resetData()">CHECKOUT</button>
-  </div> -->
     <div class="products">
-        <!-- <h1>Products Page</h1> -->
         <div class="cards" v-for="product in Products" :key="product.product_id">
         <h1>{{ product.name }}</h1>
         <img :src="product.image" />
@@ -78,67 +73,7 @@ export default {
     },
   },
 };
-// diplayBasket = () => {
-//   Basket.classList.toggle("active");
-// };
 
-// let cart = [];
-
-// let Basket = document.querySelector("#userCart");
-// if (!localStorage.getItem("product")) {
-//   console.log("cart empty");
-// } else {
-//   window.addEventListener("click", diplayBasket());
-// }
-// // document.querySelectorAll('.Item').addEventListener('click',showProduct())
-// let ResetData = () => {
-//   localStorage.clear();
-// };
-// async function showItem(id) {
-//   const response = await fetch(
-//     "https://eom-project.herokuapp.com/products/" + `${id}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "Content-type": "application/json",
-//       },
-//     }
-//   );
-//   let cartArray = [];
-//   let data = await response.json();
-//   let product = data;
-//   localStorage.setItem("product", JSON.stringify(product.pop()));
-//   // alert(localStorage.product)
-//   //   console.log=0
-//   cartArray.push(JSON.parse(localStorage.product));
-//   console.log(cartArray);
-//   cartArray.forEach((product) => {
-//     Basket.innerHTML += `
-//     <div class="productName">
-//     <h1>
-//     ${product.name}
-//     </h1>
-//     </div>
-//     <div class="productContent">
-//     <img src="${product.image}" alt="${product.name}">
-//     <h3>${product.descriptions}</h3>
-//     <input id="qty"> QTY </input>
-//     <p id="total">R${product.price}</p>
-
-//     </div>
-//     `;
-//     console.log(cartArray[0]);
-//     cart.push(cartArray[0].product_id);
-//     console.log(cart);
-//     localStorage.setItem("cart", JSON.stringify(cart));
-//   });
-// }
-// let resetData = () => {
-//   localStorage.clear();
-//   Basket.innerHTML = `
-//      <button onclick="resetData()">CHECKOUT</button>
-//      `;
-// };
 </script>
 <style scoped>
 * {
@@ -146,6 +81,11 @@ export default {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+.heading {
+    color: crimson;
+    margin-bottom: 20px;
 }
 .active {
   display: none;

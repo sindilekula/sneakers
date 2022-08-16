@@ -1,5 +1,4 @@
 <template>
-	<!-- <div><h1>LJMA GAMES</h1></div> -->
 	<div class="admin">
         <td><CreateModal :product="product" /></td>
 		<table>
@@ -15,11 +14,9 @@
 				<tr v-for="product of products" :key="product.id">
 					<td scope="row"><img v-bind:src="product.image" alt="" /></td>
 					<td>{{ product.brand }}</td>
-					<!-- <td>{{ product.category }}</td> -->
 					<td>{{ product.descriptions }}</td>
 					<td>{{ product.price }}</td>
-					<td><button @click="deleteProduct(product.product_id)"><i class="fa-solid fa-trash"></i><span class="ms-2">Delete</span></button></td>
-					<td><UpdateModal :product="product" /></td>
+					<td><button @click="deleteProduct(product.product_id)"><i class="fa-solid fa-trash"></i><span class="ms-2">Delete</span></button><UpdateModal :product="product" /></td>
 				</tr>
 			</tbody>
 		</table>
@@ -79,12 +76,20 @@ img {
     height: 150px;
 }
 
+@media screen and (max-width: 800px) {
+  img {
+    width: 100px;
+  }
+  .admin {
+    padding: 0;
+    margin: 0;
+  }
+}
+
 @media screen and (max-width: 300px) {
     .admin {
         display: flex;
         flex-direction: column;
-        /* justify-content: center;
-        align-items: center; */
     }
 
     .table {

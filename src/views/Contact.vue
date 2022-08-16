@@ -24,15 +24,13 @@
         </div>
         <div class="row">
             <div class="col-lg-8">
-                <form class="form">
+                <form action="https://formspree.io/f/xqknwllo" method="POST" class="form">
                     <label for="name">Full Name</label>
-                    <input type="text" id="name" class="name" placeholder="Please enter your fullname..." required>
+                    <input type="text" id="name" class="name" name="name" placeholder="Please enter your fullname..." required>
                     <label for="email">Email</label>
-                    <input type="text" id="email" class="email" placeholder="Please enter your email..." required>
-                    <!-- <label for="phonenumber">Phone Number</label>
-                    <input type="text" id="phonenumber" class="phonenumber" placeholder="Please enter your phone number..." required> -->
+                    <input type="text" id="email" name="email" class="email" placeholder="Please enter your email..." required>
                     <label for="subject">Subject</label>
-                    <input type="text" id="subject" class="subject" placeholder="What you wanna talk about" required>
+                    <input type="text" name="subject" id="subject" class="subject" placeholder="What you wanna talk about" required>
                     <textarea id="message" class="message my-3 text-white" placeholder="Type your message..."></textarea>
                     <div class="button mb-3 mt-3">
                         <button type="submit" class="btn btn-lg rounded-pill">Send message</button>
@@ -77,21 +75,6 @@ h1 {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.contact {
-      /* background: 
-    linear-gradient(
-      rgb(0, 0, 0),
-      rgba(0, 0, 0, 0.3)
-    ),
-    url(@/assets/sneaker1.jpg);
-
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2); */
-}
 ul li {
     list-style-type: none;
 }

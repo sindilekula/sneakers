@@ -18,9 +18,7 @@
         placeholder="Enter your password..."
         required
       />
-      <!-- <router-link :to="{ name: 'Products', params: { id: product.id} }"> -->
       <button type="submit" id="btn" @click.prevent="Login()">Login</button>
-      <!-- </router-link> -->
       <div class="mt-5">
         <p>
           Not a member?

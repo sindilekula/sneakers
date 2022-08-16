@@ -120,7 +120,6 @@ export default {
   width: 300px;
   height: 850px;
   box-shadow: 5px 5px 5px #000122;
-  /* text-align: center; */
   display: block;
   margin: 0 auto;
   border-radius: 30px;

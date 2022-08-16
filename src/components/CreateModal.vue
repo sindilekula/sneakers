@@ -11,7 +11,7 @@
       <div>PRICE</div>
       <input type="text"  />
     </form>
-    <button @click="createProduct()">Add</button>
+    <button class="btn btn-lg rounded-pill ms-2" @click="createProduct()">Add</button>
   </div>
 </template>
 <script>
@@ -42,3 +42,19 @@ export default {
   },
 };
 </script>
+
+<style>
+button.btn {
+  background-color: crimson;
+  color: black;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+}
+
+button.btn:hover {
+   background-color: black;
+  color: crimson 
+}
+</style>
+

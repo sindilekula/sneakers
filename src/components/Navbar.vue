@@ -33,10 +33,6 @@
                 </li>
             </ul>
             </div>
-            <!-- <div class="pages">
-                <router-link href="" to="/login">LOGIN</router-link>
-                <router-link href="" to="/register">REGISTER</router-link>
-            </div> -->
          </div>
     </nav>
 </template>
@@ -82,6 +78,12 @@ export default {
 .first-letter {
     color: crimson;
     font-size: 40px;
+}
+
+a:active,
+a:focus {
+  text-decoration: underline;
+  color: crimson !important;
 }
 
 nav ul li a {
@@ -139,7 +141,7 @@ ul li.nav-link {
 }
 
 a.router-link-active.router-link-exact-active.nav-link.active.text-light {
-  color: #42b983 !important;
+  color: crimson !important;
 }
 
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {

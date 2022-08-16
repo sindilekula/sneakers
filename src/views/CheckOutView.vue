@@ -9,5 +9,6 @@ export default {};
 <style scoped>
 .order {
     height: 100vh;
+    color: white;
 }
 </style>

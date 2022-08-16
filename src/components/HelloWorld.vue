@@ -139,10 +139,4 @@ img:hover {
   color: white;
 }
 
-/* .card {
-  background-image: url(@/assets/nike.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 </style>

@@ -9,7 +9,6 @@
         </p>
         <p>{{ item.descriptions }}</p>
         <p>Price: <span>R{{ item.price }}</span></p>
-        <!-- <input type="number" placeholder="qty" v-model="qty" /> -->
         <button @click="addToCart(item)" class="btn btn-lg rounded-pill ms-1">
           <i class="fa-solid fa-cart-arrow-down"></i>
           <span class="btn2">Add</span>
@@ -62,7 +61,6 @@ a {
 }
 
 .card p {
-  /* font-family: sans-serif; */
   display: flex;
   flex-direction: row;
   justify-content: center;

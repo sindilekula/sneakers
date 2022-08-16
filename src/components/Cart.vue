@@ -29,8 +29,6 @@
                 <div class="card">
                     <h5>CART SUMMARY</h5>
                     <div class="cart-details">
-                        <!-- <p class="namecart"><span>Subtotal:</span> <span class="ms-5">R{{ calculatePrice }}</span></p>
-                        <p><span>Shipping:</span> <span class="ms-5">Free shipping</span></p> -->
                         <div class="row">
                         <p>Subtotal:</p>
                         <p>Shipping:</p>
